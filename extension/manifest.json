@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "EastCoverLetter",
+  "name": "EasyCoverLetter",
   "version": "1.1.0",
   "description": "Grab a job description from the current page or URL and draft a tailored cover letter.",
   "permissions": ["activeTab", "scripting", "storage", "sidePanel", "tabs"],
@@ -10,7 +10,7 @@
     "type": "module"
   },
   "action": {
-    "default_title": "EastCoverLetter",
+    "default_title": "EasyCoverLetter",
     "default_icon": {
       "16": "icons/icon-16.png",
       "32": "icons/icon-32.png",
