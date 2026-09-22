@@ -1,0 +1,205 @@
+:root {
+  --page: #e8efe8;
+  --ink: #14221a;
+  --muted: #4d5f54;
+  --surface: #f7faf7;
+  --border: #b7c6bb;
+  --accent: #1f6b4a;
+  --accent-ink: #f4fbf7;
+  --chip: #dce8e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 14px 14px 28px;
+  font: 14px/1.45 "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(700px 280px at 0% 0%, #c9ddd0 0%, transparent 60%),
+    linear-gradient(180deg, #e8efe8, #d7e2da);
+  min-height: 100vh;
+}
+
+.header h1 {
+  margin: 0 0 4px;
+  font: 600 22px/1.15 Georgia, "Times New Roman", serif;
+}
+
+.header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.header p,
+.meta,
+.optional,
+.status,
+.hint {
+  color: var(--muted);
+}
+
+.header p {
+  margin: 0;
+}
+
+.hint {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.text-link {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.block {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.dual {
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label,
+legend {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 8px 10px;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn,
+.chip {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: #18563c;
+  color: var(--accent-ink);
+}
+
+.btn.ghost,
+.chip {
+  background: color-mix(in oklab, var(--surface) 85%, white);
+  color: var(--ink);
+}
+
+.btn:disabled,
+.chip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn.link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.chip.active {
+  background: var(--accent);
+  border-color: #18563c;
+  color: var(--accent-ink);
+  text-transform: capitalize;
+}
+
+.chip {
+  text-transform: capitalize;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.meta {
+  margin: 0;
+  font-size: 12px;
+  min-height: 1.2em;
+}
+
+.status {
+  margin: 4px 0 10px;
+  font-size: 13px;
+}
+
+.status.error {
+  color: #8a1f1f;
+}
+
+.letter {
+  white-space: pre-wrap;
+  background: linear-gradient(180deg, #fffef9, #f6f3ea);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  font: 14px/1.55 Georgia, "Times New Roman", serif;
+}
+
+.letter-tappable {
+  cursor: pointer;
+}
+
+.letter-tappable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.meta.error {
+  color: #8a1f1f;
+}
+
+.meta.ok {
+  color: var(--accent);
+}

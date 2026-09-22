@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EastCoverLetter</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div id="composeView">
+      <header class="header header-row">
+        <div>
+          <h1>EastCoverLetter</h1>
+          <p>Grab a posting, set length and tone, generate. API key and resume live in Settings.</p>
+        </div>
+        <button type="button" id="openSettingsBtn" class="btn ghost">Settings</button>
+      </header>
+
+      <p id="settingsHint" class="hint" hidden></p>
+
+      <section class="block">
+        <div class="row">
+          <button type="button" id="grabBtn" class="btn primary">Grab job description</button>
+          <button type="button" id="previousBtn" class="btn ghost" disabled>Use previous page</button>
+        </div>
+        <p id="grabMeta" class="meta" aria-live="polite"></p>
+      </section>
+
+      <section class="block">
+        <label for="jobUrl">Job posting URL <span class="optional">(optional)</span></label>
+        <div class="row">
+          <input id="jobUrl" type="url" inputmode="url" autocomplete="off" placeholder="https://…" />
+          <button type="button" id="fetchUrlBtn" class="btn ghost">Fetch from URL</button>
+        </div>
+        <p class="meta">Opens the link in a background tab, extracts with page heuristics (no AI), then fills the box below.</p>
+        <p id="urlStatus" class="meta" aria-live="polite"></p>
+      </section>
+
+      <section class="block">
+        <label for="jobDescription">Job description</label>
+        <textarea id="jobDescription" rows="8" placeholder="Grab, fetch a URL, or paste here."></textarea>
+      </section>
+
+      <section class="block">
+        <label for="extraPrompt">Extra prompt <span class="optional">(optional)</span></label>
+        <textarea id="extraPrompt" rows="3" placeholder="Any extra instructions."></textarea>
+      </section>
+
+      <section class="block dual">
+        <fieldset>
+          <legend>Length</legend>
+          <div class="chips" id="lengthChips" data-group="length">
+            <button type="button" data-value="short" class="chip">short</button>
+            <button type="button" data-value="medium" class="chip active">medium</button>
+            <button type="button" data-value="long" class="chip">long</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Tone</legend>
+          <div class="chips" id="toneChips" data-group="tone">
+            <button type="button" data-value="casual" class="chip">casual</button>
+            <button type="button" data-value="informal" class="chip">informal</button>
+            <button type="button" data-value="formal" class="chip active">formal</button>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="block row">
+        <button type="button" id="generateBtn" class="btn primary">Generate cover letter</button>
+        <button type="button" id="copyBtn" class="btn ghost" disabled>Copy</button>
+        <a
+          class="btn ghost link"
+          href="http://127.0.0.1:4317"
+          target="_blank"
+          rel="noreferrer"
+          >Open web / PWA</a
+        >
+      </section>
+
+      <p id="status" class="status" role="status"></p>
+      <p id="letterHint" class="meta" hidden>Tap letter to copy</p>
+      <article id="letter" class="letter letter-tappable" hidden tabindex="0" title="Tap to copy"></article>
+    </div>
+
+    <div id="settingsView" hidden>
+      <header class="header header-row">
+        <div>
+          <h1>Settings</h1>
+          <p>Saved on this device and reused every generate.</p>
+        </div>
+        <button type="button" id="backComposeBtn" class="btn ghost">Back</button>
+      </header>
+
+      <section class="block">
+        <label for="apiKey">OpenAI API key</label>
+        <div class="row">
+          <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-…" />
+          <button type="button" id="toggleKey" class="btn ghost">Show</button>
+        </div>
+        <p class="meta">Stored in extension storage only. Never committed.</p>
+      </section>
+
+      <section class="block">
+        <label for="resume">Resume</label>
+        <textarea id="resume" rows="12" placeholder="Paste your resume text."></textarea>
+      </section>
+
+      <section class="block row">
+        <button type="button" id="saveSettingsBtn" class="btn primary">Save settings</button>
+        <p id="settingsSaved" class="meta" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <script type="module" src="sidepanel.js"></script>
+  </body>
+</html>

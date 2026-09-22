@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+web/node_modules/
+web/.next/
+web/out/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*secret*
+*credentials*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
