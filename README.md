@@ -1,3 +1,6 @@
+
+![Preview](./preview.png)
+
 # EasyCoverLetter
 
 Phone-friendly **installable PWA** (static shell + service worker) plus a desktop **Chrome MV3 extension** that grabs the job description from the current page (and remembers the previous grab).
